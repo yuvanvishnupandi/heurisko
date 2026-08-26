@@ -227,7 +227,7 @@ async def start_research_endpoint(request: ResearchRequest, background_tasks: Ba
     background_tasks.add_task(run_background_research, task_id, request.query, request.language, request.chat_history, db_history_id, token)
 
     # Store initial processing status
-    task_results[task_id] = ResultResponse(status="processing", result={"history_id": db_history_id} if db_history_id else None)
+    task_results[task_id] = ResultResponse(status="processing", result=None)
 
     return TaskResponse(task_id=task_id, message="Web research process started.", history_id=db_history_id)
 

@@ -69,72 +69,7 @@ def get_primary_llm(streaming: bool = False):
     primary_llm = None
     fallbacks = []
 
-    # 1. Gemini
-    if GEMINI_API_KEY and ChatGoogleGenerativeAI is not None:
-        try:
-            gemini_llm = ChatGoogleGenerativeAI(
-                model=GEMINI_MODEL,
-                google_api_key=GEMINI_API_KEY,
-                streaming=streaming,
-            )
-            if primary_llm is None:
-                primary_llm = gemini_llm
-            else:
-                fallbacks.append(gemini_llm)
-        except Exception as e:
-            logging.error(f"Failed to initialize Gemini: {e}")
-
-    # 2. OpenAI
-    if OPENAI_API_KEY:
-        try:
-            from langchain_openai import ChatOpenAI
-            openai_llm = ChatOpenAI(
-                model="gpt-4o-mini",
-                openai_api_key=OPENAI_API_KEY,
-                streaming=streaming,
-            )
-            if primary_llm is None:
-                primary_llm = openai_llm
-            else:
-                fallbacks.append(openai_llm)
-        except Exception as e:
-            logging.error(f"Failed to initialize OpenAI: {e}")
-
-    # 3. Groq
-    if GROQ_API_KEY:
-        try:
-            from langchain_openai import ChatOpenAI
-            groq_llm = ChatOpenAI(
-                base_url="https://api.groq.com/openai/v1",
-                model="llama3-70b-8192",
-                openai_api_key=GROQ_API_KEY,
-                streaming=streaming,
-            )
-            if primary_llm is None:
-                primary_llm = groq_llm
-            else:
-                fallbacks.append(groq_llm)
-        except Exception as e:
-            logging.error(f"Failed to initialize Groq: {e}")
-
-    # 4. Mistral
-    if MISTRAL_API_KEY:
-        try:
-            from langchain_openai import ChatOpenAI
-            mistral_llm = ChatOpenAI(
-                base_url="https://api.mistral.ai/v1",
-                model="mistral-large-latest",
-                openai_api_key=MISTRAL_API_KEY,
-                streaming=streaming,
-            )
-            if primary_llm is None:
-                primary_llm = mistral_llm
-            else:
-                fallbacks.append(mistral_llm)
-        except Exception as e:
-            logging.error(f"Failed to initialize Mistral: {e}")
-            
-    # 5. OpenRouter
+    # 1. OpenRouter (Fast and usually reliable)
     if OPENROUTER_API_KEY:
         try:
             from langchain_openai import ChatOpenAI
@@ -150,6 +85,71 @@ def get_primary_llm(streaming: bool = False):
                 fallbacks.append(openrouter_llm)
         except Exception as e:
             logging.error(f"Failed to initialize OpenRouter: {e}")
+
+    # 2. Mistral (Confirmed working in logs)
+    if MISTRAL_API_KEY:
+        try:
+            from langchain_openai import ChatOpenAI
+            mistral_llm = ChatOpenAI(
+                base_url="https://api.mistral.ai/v1",
+                model="mistral-large-latest",
+                openai_api_key=MISTRAL_API_KEY,
+                streaming=streaming,
+            )
+            if primary_llm is None:
+                primary_llm = mistral_llm
+            else:
+                fallbacks.append(mistral_llm)
+        except Exception as e:
+            logging.error(f"Failed to initialize Mistral: {e}")
+
+    # 3. Gemini
+    if GEMINI_API_KEY and ChatGoogleGenerativeAI is not None:
+        try:
+            gemini_llm = ChatGoogleGenerativeAI(
+                model=GEMINI_MODEL,
+                google_api_key=GEMINI_API_KEY,
+                streaming=streaming,
+            )
+            if primary_llm is None:
+                primary_llm = gemini_llm
+            else:
+                fallbacks.append(gemini_llm)
+        except Exception as e:
+            logging.error(f"Failed to initialize Gemini: {e}")
+
+    # 4. OpenAI (Currently hitting 429)
+    if OPENAI_API_KEY:
+        try:
+            from langchain_openai import ChatOpenAI
+            openai_llm = ChatOpenAI(
+                model="gpt-4o-mini",
+                openai_api_key=OPENAI_API_KEY,
+                streaming=streaming,
+            )
+            if primary_llm is None:
+                primary_llm = openai_llm
+            else:
+                fallbacks.append(openai_llm)
+        except Exception as e:
+            logging.error(f"Failed to initialize OpenAI: {e}")
+
+    # 5. Groq (Currently hitting 400)
+    if GROQ_API_KEY:
+        try:
+            from langchain_openai import ChatOpenAI
+            groq_llm = ChatOpenAI(
+                base_url="https://api.groq.com/openai/v1",
+                model="llama3-70b-8192",
+                openai_api_key=GROQ_API_KEY,
+                streaming=streaming,
+            )
+            if primary_llm is None:
+                primary_llm = groq_llm
+            else:
+                fallbacks.append(groq_llm)
+        except Exception as e:
+            logging.error(f"Failed to initialize Groq: {e}")
 
     if primary_llm is None:
         raise ValueError(
