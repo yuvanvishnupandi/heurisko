@@ -1,3 +1,4 @@
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -77,7 +78,7 @@ function App() {
       formData.append('file', file);
       
       try {
-        const response = await fetch('http://localhost:8000/extract-text', {
+        const response = await fetch(`${API_BASE_URL}/extract-text`, {
           method: 'POST',
           body: formData,
         });
@@ -107,7 +108,7 @@ function App() {
 
   const fetchHistory = async (token) => {
     try {
-      const res = await fetch('http://localhost:8000/history', {
+      const res = await fetch(`${API_BASE_URL}/history`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -130,7 +131,7 @@ function App() {
   const loadHistoryItem = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/history/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/history/${id}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.status === 401) {
@@ -160,7 +161,7 @@ function App() {
     e.stopPropagation();
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:8000/history/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/history/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -181,7 +182,7 @@ function App() {
     
     try {
       const endpoint = isLoginMode ? '/auth/login' : '/auth/register';
-      const response = await fetch(`http://localhost:8000${endpoint}`, {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: authEmail, password: authPassword })
@@ -251,7 +252,7 @@ function App() {
         history_id: currentHistoryId
       };
 
-      const response = await fetch('http://localhost:8000/research', {
+      const response = await fetch(`${API_BASE_URL}/research`, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(payload)
@@ -280,7 +281,7 @@ function App() {
     if (taskId && status === 'running') {
       pollingIntervalRef.current = setInterval(async () => {
         try {
-          const res = await fetch(`http://localhost:8000/results/${taskId}`);
+          const res = await fetch(`${API_BASE_URL}/results/${taskId}`);
           if (res.ok) {
             const data = await res.json();
             if (data.status === 'completed') {
