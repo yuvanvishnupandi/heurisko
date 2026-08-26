@@ -156,6 +156,13 @@ Configure your local database and environment variables, then start the FastAPI 
 </td>
 
 <td align="center" width="150">
+<a href="https://www.sqlalchemy.org/">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sqlalchemy.svg" width="60"><br><br>
+<b>SQLAlchemy</b>
+</a>
+</td>
+
+<td align="center" width="150">
 <a href="https://tailwindcss.com">
 <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tailwindcss.svg" width="60"><br><br>
 <b>Tailwind CSS</b>
@@ -172,16 +179,16 @@ Configure your local database and environment variables, then start the FastAPI 
 
 <tr>
 <td align="center" width="150">
-<a href="https://vercel.com">
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vercel.svg" width="60"><br><br>
-<b>Vercel</b>
+<a href="https://openrouter.ai">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg" width="60"><br><br>
+<b>OpenRouter</b>
 </a>
 </td>
 
 <td align="center" width="150">
-<a href="https://git-scm.com">
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/git.svg" width="60"><br><br>
-<b>Git</b>
+<a href="https://vercel.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vercel.svg" width="60"><br><br>
+<b>Vercel</b>
 </a>
 </td>
 
@@ -212,23 +219,23 @@ The application follows a modern decoupled architecture consisting of a React pr
 ```mermaid
 graph TD
 
-subgraph Client["Client Layer"]
+subgraph Client Layer
 WebApp[React Web App]
 end
 
-subgraph Server["Application Layer"]
+subgraph Application Layer
 API[FastAPI Server]
 AUTH[JWT Authentication]
 TASKS[Background Task Engine]
 end
 
-subgraph AI["AI Service Engine"]
+subgraph AI Service Engine
 EXTRACT[Document Extraction]
 RESEARCH[Web Research]
 SYNTHESIS[LLM Synthesis]
 end
 
-subgraph Database["Database Layer"]
+subgraph Database Layer
 SQLITE[(SQLite)]
 end
 
