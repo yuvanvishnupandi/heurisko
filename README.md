@@ -1,144 +1,312 @@
-# Heurisko Web Research Agent 🕵️‍♀️
+<div align="center">
+  <img src="frontend/public/logo.png" alt="Heurisko" width="150" style="border-radius:12px"/>
+</div>
 
-![Heurisko Logo](Logo.png)
+<br />
 
-[![Python Version](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Framework](https://img.shields.io/badge/Framework-Streamlit-red.svg)](https://streamlit.io/)
-[![Orchestration](https://img.shields.io/badge/Orchestration-LangChain%20/%20LangGraph-purple.svg)](https://www.langchain.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<div align="center">
+<p>An AI-powered academic search engine with document intelligence, conversational LLM research, and background streaming capabilities.</p>
+<br />
 
-## ✨ Overview
+<p align="center">
 
-Heurisko is a comprehensive web research agent designed to investigate queries by **autonomously gathering and analyzing information** from multiple online sources. It uses a sophisticated agent powered by LLMs and LangGraph to dynamically select tools, conduct research, and synthesize findings, ultimately delivering a structured research report directly within a Streamlit interface.
+<a href="https://heurisko.vercel.app/">
+<img src="https://img.shields.io/badge/🌐_Live_Demo-22C55E?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"/>
+</a>
+<a href="LICENSE">
+<img src="https://img.shields.io/badge/License-MIT-7C3AED?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License"/>
+</a>
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
 
-## 🚀 Features
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
 
-- **🤖 Agentic Workflow**: Employs an AI agent orchestrated with LangGraph to manage the entire research process directly within Streamlit.
-- **🛠️ Dynamic Tool Selection**: The agent intelligently chooses the best tools (Search Engines, Web Scrapers, APIs) based on the query and intermediate findings.
-- **🔍 Multi-source Evidence Collection**: Gathers information from diverse sources using tools like Tavily, Google Search (via Gemini), DuckDuckGo, Wikidata, NewsAPI, and Firecrawl.
-- **🧩 Query Decomposition**: Can break down complex queries into simpler, searchable sub-questions using LLMs.
-- **📝 Structured Reporting**: Synthesizes findings into a well-organized report with a summary, detailed sections, and source attribution.
-- **🔗 Source Attribution**: Transparently lists all sources consulted and the tools used to access them.
-- **🖥️ Modern Dark Mode Interface**: Clean, user-friendly Streamlit interface for interaction and result presentation.
+<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite"/>
 
-## 🏗️ System Architecture
+<img src="https://img.shields.io/badge/Mistral_AI-FF7000?style=for-the-badge&logo=mistral&logoColor=white" alt="Mistral"/>
 
-Heurisko leverages an **agentic architecture**, orchestrated using LangGraph, running directly within the Streamlit application. Instead of a fixed pipeline, a central **Web Research Agent** dynamically plans and executes tasks using a suite of available tools:
+<img src="https://img.shields.io/github/last-commit/yuvanvishnupandi/heurisko?style=for-the-badge"/>
+
+</p>
+
+</div>
+
+---
+
+<div align="center">
+
+<table>
+  <tr>
+    <td><img src="assets/home.jpeg" width="400" style="border-radius:8px"/></td>
+    <td><img src="assets/chat.jpeg" width="400" style="border-radius:8px"/></td>
+  </tr>
+  <tr>
+    <td><img src="assets/upload.jpeg" width="400" style="border-radius:8px"/></td>
+    <td><img src="assets/login.jpeg" width="400" style="border-radius:8px"/></td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+## What you get
+
+<div align="center">
+<img src="assets/readme_overview.png" alt="Heurisko — overview" width="100%" />
+</div>
+
+<details>
+<summary><b>See all features</b></summary>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### 🤖 AI Research Engine
+
+- **Document Extraction** — Upload PDF, DOCX, and MD files for instant text extraction and synthesis.
+- **Background Processing** — Complex queries are offloaded to asynchronous backend tasks to keep the UI fluid.
+- **Deep Synthesis** — The AI scours academic literature and cross-references it with your uploaded documents.
+
+</td>
+<td width="50%" valign="top">
+
+#### 💬 Conversational UI
+
+- **Context-Aware Threads** — Dedicated chat interface that remembers your history using database-persisted threads.
+- **Instant Streaming** — Token-by-token streaming from the language model for a fast, native feel.
+- **Rich Formatting** — Fully supports Markdown, citations, and comprehensive research reports.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+#### 🔐 Secure Authentication
+
+- **JWT Authentication** — Fast, secure login and registration system.
+- **Data Persistence** — All chat histories and documents are securely saved to a relational database.
+
+</td>
+<td width="50%" valign="top">
+
+#### ✨ Premium Design
+
+- **Consensus Aesthetics** — Designed with a premium, clean layout inspired by modern academic tools.
+- **Responsive PWA** — Looks stunning on Desktop, Tablet, and Mobile with zero scrollbar cutoffs.
+
+</td>
+</tr>
+</table>
+
+</details>
+
+<br />
+
+## Get started
+
+```bash
+git clone https://github.com/yuvanvishnupandi/heurisko.git
+cd heurisko
+```
+
+Configure your local database and environment variables, then start the FastAPI backend and Vite frontend (see [Local Setup](#local-setup) below).
+
+<br />
+
+## 🛠️ Tech Stack
+
+<table align="center">
+<tr>
+<td align="center" width="150">
+<a href="https://react.dev">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/react.svg" width="60"><br><br>
+<b>React</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://vitejs.dev">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vite.svg" width="60"><br><br>
+<b>Vite</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://python.org">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/python.svg" width="60"><br><br>
+<b>Python</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://fastapi.tiangolo.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/fastapi.svg" width="60"><br><br>
+<b>FastAPI</b>
+</a>
+</td>
+</tr>
+
+<tr>
+<td align="center" width="150">
+<a href="https://sqlite.org">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sqlite.svg" width="60"><br><br>
+<b>SQLite</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://mistral.ai">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/mistral.svg" width="60"><br><br>
+<b>Mistral AI</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://tailwindcss.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tailwindcss.svg" width="60"><br><br>
+<b>Tailwind CSS</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://jwt.io">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/jsonwebtokens.svg" width="60"><br><br>
+<b>JWT</b>
+</a>
+</td>
+</tr>
+
+<tr>
+<td align="center" width="150">
+<a href="https://vercel.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vercel.svg" width="60"><br><br>
+<b>Vercel</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://git-scm.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/git.svg" width="60"><br><br>
+<b>Git</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://github.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg" width="60"><br><br>
+<b>GitHub</b>
+</a>
+</td>
+
+<td align="center" width="150">
+<a href="https://postman.com">
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/postman.svg" width="60"><br><br>
+<b>Postman</b>
+</a>
+</td>
+</tr>
+</table>
+
+<br><br>
+
+---
+
+<h2 id="architecture">🏛️ Overall system architecture</h2>
+
+The application follows a modern decoupled architecture consisting of a React presentation layer and a FastAPI backend with SQLite persistence. Background tasks handle expensive AI operations asynchronously.
 
 ```mermaid
 graph TD
-    user([User])
-    app[Streamlit App]
-    agent[LangGraph Agent]
-    llm1[Primary LLM: Decision Making]
-    llm2[Parser LLM: Gemini Output Parsing]
-    
-    subgraph tools[Tools]
-        t1[Tavily Search]
-        t2[DuckDuckGo Search]
-        t3[Gemini Search Tool]
-        t4[Firecrawl Scrape Tool]
-        t5[News API Tool]
-        t6[Wikidata Search Tool]
-        t7[Query Decomposition Tool]
-        t8[FINISH Signal]
-    end
-    
-    subgraph sources[External Sources]
-        s1[Websites]
-        s2[APIs/Databases]
-    end
-    
-    report[(Research Report Schema)]
-    
-    user --> |Inputs Query| app
-    app --> |Invokes Agent Directly| agent
-    agent --> |Reasoning & Tool Selection| llm1
-    agent --> |Parses Specific Outputs| llm2
-    agent --> |Tool Invocation| tools
-    tools --> |Data Retrieval| sources
-    sources --> |Returns Data| tools
-    tools --> |Observations| agent
-    agent --> |Synthesizes Report| report
-    agent --> |Returns Report/Error| app
-    app --> |Displays Report| user
 
+subgraph Client["Client Layer"]
+WebApp[React Web App]
+end
+
+subgraph Server["Application Layer"]
+API[FastAPI Server]
+AUTH[JWT Authentication]
+TASKS[Background Task Engine]
+end
+
+subgraph AI["AI Service Engine"]
+EXTRACT[Document Extraction]
+RESEARCH[Web Research]
+SYNTHESIS[LLM Synthesis]
+end
+
+subgraph Database["Database Layer"]
+SQLITE[(SQLite)]
+end
+
+WebApp --> API
+
+API --> AUTH
+API --> SQLITE
+API --> TASKS
+
+TASKS --> EXTRACT
+TASKS --> RESEARCH
+TASKS --> SYNTHESIS
+
+SYNTHESIS --> LLM_APIs[Mistral / OpenRouter API]
 ```
 
-*This diagram represents a high-level overview of the simplified system components and their interactions, driven by the agent's dynamic workflow within Streamlit.*
+<br />
 
-## ⚙️ How the System Works (Agentic Flow)
-
-The web research process is driven by the agent's autonomous reasoning within the LangGraph framework, executed within the Streamlit app:
-
-1.  **User Input**: A user submits a research query via the Streamlit UI (`app.py`).
-2.  **Agent Execution**: The Streamlit app directly invokes the LangGraph agent (`run_web_research`) with the query:
-    *   The agent analyzes the query and decides the next best action (e.g., decompose query, search the web, scrape a page).
-    *   It invokes the appropriate tool with specific inputs.
-    *   It processes the tool's observation (output) and updates its internal state.
-    *   This cycle continues (Agent -> Tool -> Agent) until the agent determines it has gathered sufficient information.
-3.  **Final Synthesis**: Once the agent decides to finish, it synthesizes all gathered information and structured observations into a `ResearchReport` or `ErrorResponse` object.
-4.  **Presentation**: The final report or error message is returned to the Streamlit app and presented directly to the user in the UI.
-
-## 🚀 Getting Started
+<h2 id="local-setup">🚀 Local setup</h2>
 
 ### Prerequisites
 
-- Python 3.8+
-- Required API keys stored securely (e.g., in a `.env` file) for the tools you intend to use (e.g., OpenAI, Google AI, Tavily, NewsAPI, Firecrawl).
+- Node.js 18 or later
+- Python 3.9 or later
 
-### Installation
+### Clone repository
 
-1.  Clone the repository:
-    ```bash
-    git clone <repository_url>
-    cd <repository_directory>
-    ```
-2.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  Set up environment variables by creating a `.env` file in the root directory with your API keys.
+```bash
+git clone https://github.com/yuvanvishnupandi/heurisko.git
+cd heurisko
+```
 
-### Running the Application
+<details>
+<summary><b>Backend setup</b></summary>
 
-1.  Start the Streamlit application:
-    ```bash
-    streamlit run app.py
-    ```
-    The app will usually be available at `http://localhost:8501`.
+```bash
+# From the root directory
+pip install -r requirements.txt
+uvicorn research_system.api.main:app --reload
+```
 
-## 🤔 Example Queries to Try
+</details>
 
-Challenge the agent with various research queries:
+<details>
+<summary><b>Frontend setup</b></summary>
 
-- "What are the latest advancements in renewable energy technology?"
-- "Explain the concept of large language models and their applications."
-- "Compare and contrast the economic impacts of Brexit on the UK and the EU."
-- "Provide a brief history of the internet."
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## 🔌 API Usage
+</details>
 
-(The separate API endpoint is no longer applicable as the logic is integrated into the Streamlit app.)
+<br />
 
-## 🤝 Contributing
+<h2 id="environment-variables">Environment variables</h2>
+<details>
+<summary><b>Full reference</b></summary>
 
-Contributions are welcome! If you have suggestions, bug reports, or want to add new tools or features, please feel free to:
+<br />
 
-1.  Open an issue to discuss the change.
-2.  Fork the repository.
-3.  Create a new branch (`git checkout -b feature/YourFeature`).
-4.  Make your changes.
-5.  Commit your changes (`git commit -m 'Add some feature'`).
-6.  Push to the branch (`git push origin feature/YourFeature`).
-7.  Open a Pull Request.
+| Variable | Description | Where |
+|----------|-------------|-------|
+| `OPENROUTER_API_KEY` | API Key for LLM access | Root `.env` |
+| `API_URL` | Base URL the frontend uses to call the backend API | Root `.env` |
 
-## 📜 License
+</details>
 
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+<br />
 
-## 🙏 Acknowledgments
+## License
 
-- Built with ❤️ using [Python](https://www.python.org/), [Streamlit](https://streamlit.io/), and [LangChain/LangGraph](https://www.langchain.com/).
-- Leverages powerful APIs and tools from [Tavily AI](https://tavily.com/), [Google AI (Gemini)](https://ai.google.dev/), [DuckDuckGo](https://duckduckgo.com/), [Firecrawl](https://firecrawl.dev/), [NewsAPI](https://newsapi.org/), [Wikidata](https://www.wikidata.org/), and others.
-- Inspired by the need for effective and automated information gathering. 
+Heurisko is [MIT licensed](LICENSE).
