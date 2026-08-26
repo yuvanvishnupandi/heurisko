@@ -371,14 +371,7 @@ npm run dev
 
 <br />
 
-## 🤖 AI Contributors
 
-This project was built with the assistance of advanced AI models:
-- **Claude** (Anthropic) - Assisted with complex architecture and problem solving
-- **Gemini** (Google) - Assisted with coding, debugging, and rapid prototyping
-- **ChatGPT** (OpenAI) - Assisted with ideation and drafting
-
-<br />
 
 ## Data & storage
 
