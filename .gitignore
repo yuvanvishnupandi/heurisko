@@ -1,0 +1,48 @@
+.env
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directories
+venv/
+env/
+ENV/
+.venv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore log files
+*.log
+
+# Ignore local configuration files
+*.local
+*.env
+
+# Ignore coverage reports
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore other temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+__pycache__/example.cpython-312.pyc
+__pycache__/
+fact_check_results.json
+docs/
+heurisko.db
+report/benchmarks.html
+report/data.csv
+report/export_charts.ps1
+data.md
+report/plot_benchmarks.py

@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-background: #FAFAFA;
+  --color-secondary: #FFFFFF;
+  --color-primary: #1B6D7A;
+  --color-accent: #D1E8E6;
+  --color-text: #111827;
+  --color-sidebar: #F9FAFB;
+  --color-border: #E5E7EB;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+  
+  /* Smooth page transitions */
+  * {
+    transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.4s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer components {
+  .prose table {
+    @apply w-full text-left text-sm mt-6 mb-8 border-collapse overflow-hidden rounded-xl border border-gray-200 shadow-sm block sm:table overflow-x-auto;
+  }
+  .prose th {
+    @apply bg-gray-50 text-gray-700 font-semibold px-4 py-3 border-b border-gray-200 uppercase tracking-wider text-xs whitespace-nowrap;
+  }
+  .prose td {
+    @apply px-4 py-4 border-b border-gray-100 text-gray-800 align-top;
+  }
+  .prose tr:last-child td {
+    @apply border-b-0;
+  }
+  .prose tr:nth-child(even) {
+    @apply bg-white;
+  }
+  .prose tr:nth-child(odd) {
+    @apply bg-gray-50/30;
+  }
+}
