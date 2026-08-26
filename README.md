@@ -180,7 +180,7 @@ Configure your local database and environment variables, then start the FastAPI 
 <tr>
 <td align="center" width="150">
 <a href="https://openrouter.ai">
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg" width="60"><br><br>
+<img src="https://cdn.simpleicons.org/openrouter" width="60" alt="OpenRouter"><br><br>
 <b>OpenRouter</b>
 </a>
 </td>
