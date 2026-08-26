@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="frontend/public/logo.png" alt="Heurisko" width="150" style="border-radius:12px"/>
+  <img src="assets/logo.png" alt="Heurisko" width="470" style="border-radius:12px"/>
 </div>
 
 <br />
@@ -152,13 +152,6 @@ Configure your local database and environment variables, then start the FastAPI 
 <a href="https://sqlite.org">
 <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/sqlite.svg" width="60"><br><br>
 <b>SQLite</b>
-</a>
-</td>
-
-<td align="center" width="150">
-<a href="https://mistral.ai">
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/mistral.svg" width="60"><br><br>
-<b>Mistral AI</b>
 </a>
 </td>
 
