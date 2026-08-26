@@ -23,3 +23,6 @@ google-genai==1.11.0
 pandas==2.2.2
 seaborn==0.13.2
 matplotlib==3.8.4
+PyJWT==2.8.0
+passlib==1.7.4
+bcrypt==4.1.2
