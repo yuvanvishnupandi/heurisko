@@ -8,7 +8,7 @@
 <p>An autonomous AI research assistant and academic search engine powered by multi-agent AI, offering deep document intelligence, conversational research, and real-time streaming capabilities.</p>
 <br />
 
-<p align="center">
+<p align="center"> 
 
 <a href="https://heurisko.vercel.app/">
 <img src="https://img.shields.io/badge/🌐_Live_Demo-22C55E?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"/>
