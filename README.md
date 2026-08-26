@@ -40,7 +40,7 @@
     <td><img src="assets/chat.png" width="400" style="border-radius:8px"/></td>
   </tr>
   <tr>
-    <td><img src="assets/upload.jpeg" width="400" style="border-radius:8px"/></td>
+    <td><img src="assets/results.png" width="400" style="border-radius:8px"/></td>
     <td><img src="assets/login.png" width="400" style="border-radius:8px"/></td>
   </tr>
 </table>

@@ -420,7 +420,7 @@ function App() {
             </form>
 
             <p className="text-center text-xs text-gray-500 mt-10">
-              By continuing, you agree to our <a href="#" className="text-gray-700 underline hover:text-primary">Terms of Service</a> and <a href="#" className="text-gray-700 underline hover:text-primary">Privacy Policy</a>.
+              By continuing, you agree to our <span className="text-gray-700 underline hover:text-primary">Terms of Service</span> and <span className="text-gray-700 underline hover:text-primary">Privacy Policy</span>.
             </p>
           </div>
         </div>
