@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/logo.png" alt="Heurisko" width="470" style="border-radius:12px"/>
+  <img src="assets/readme_logo.png" alt="Heurisko" width="470" style="border-radius:12px"/>
 </div>
 
 <br />
