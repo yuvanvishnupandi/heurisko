@@ -254,6 +254,66 @@ SYNTHESIS --> LLM_APIs[Mistral / OpenRouter API]
 
 <br />
 
+## Diagnostic processing workflow
+
+The following sequence diagram illustrates how a research query is processed from submission to the final synthesized report.
+
+```mermaid
+sequenceDiagram
+
+actor User
+participant Frontend
+participant Backend
+participant AI
+participant Database
+
+User->>Frontend: Upload document & submit query
+Frontend->>Backend: Send data and query securely
+Backend->>AI: Trigger async research pipeline
+AI->>AI: Document Extractor parses PDF/DOCX
+AI->>AI: AI Agents cross-reference literature
+AI->>AI: Synthesize final comprehensive report
+AI-->>Backend: Return formatted research
+Backend->>Database: Save research history thread
+Backend-->>Frontend: Stream results to UI
+Frontend-->>User: Display conversational response
+```
+
+<br />
+
+## Core data flow
+
+1. User uploads a research document or enters an academic query.
+2. The React frontend forwards the request to the FastAPI backend.
+3. The Document Extractor safely converts binary files to readable text.
+4. The Research Agents query LLMs and web sources to find literature.
+5. The processed research report is stored in SQLite.
+6. The user receives a comprehensive, conversational AI response.
+
+<br />
+
+<h2 id="multi-agent-ai-engine">🧠 Autonomous Research Engine</h2>
+
+The AI service is designed as a collection of specialized agents. Each agent performs a dedicated task, allowing the system to process large academic queries in a structured manner.
+
+<details>
+<summary><b>See all agents</b></summary>
+
+<br />
+
+- **Document Extractor**
+  - Securely parses binary `.pdf` and `.docx` files to extract raw academic text.
+
+- **Research Engine**
+  - Autonomous agents that search literature, synthesize data, and summarize findings.
+
+- **Conversation Manager**
+  - Manages chat state, remembers previous threads, and formats responses in clean Markdown.
+
+</details>
+
+<br />
+
 <h2 id="local-setup">🚀 Local setup</h2>
 
 ### Prerequisites
@@ -304,6 +364,13 @@ npm run dev
 | `API_URL` | Base URL the frontend uses to call the backend API | Root `.env` |
 
 </details>
+
+<br />
+
+## Data & storage
+
+- **Database** — SQLite Local Database
+- **Hosting** — Frontend on Vercel, Backend on Render
 
 <br />
 
