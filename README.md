@@ -5,7 +5,7 @@
 <br />
 
 <div align="center">
-<p>An AI-powered academic search engine with document intelligence, conversational LLM research, and background streaming capabilities.</p>
+<p>A next-generation academic search engine powered by multi-agent AI, offering deep document intelligence, conversational research, and real-time streaming capabilities.</p>
 <br />
 
 <p align="center">
